@@ -118,7 +118,7 @@ En la figura 1 se observa la arquitectura de referencia para solucionar el probl
 
 \begin{figure}[htpb]
 \centering 
-\includegraphics[width=.7\textwidth]{./Figuras/diagrama-bloques.png}
+\includegraphics[width=.8\textwidth]{./Figuras/diagrama-bloques.png}
 \caption{Diagrama en bloques del sistema}
 \label{fig:diagBloques}
 \end{figure}
@@ -194,38 +194,19 @@ Para el desarrollo del presente proyecto se supone que:
 
 \section{4. Requerimientos}
 \label{sec:requerimientos}
-
-\begin{consigna}{red}
-Los requerimientos deben numerarse y de ser posible agruparlos por afinidad:
-
+\begin{consigna}{black}
 \begin{enumerate}
-\item Grupo de requerimientos asociados con...
+\item Grupo de requerimientos asociados con insumos:
 	\begin{enumerate}
-	\item Requerimiento 1
-	\item Requerimiento 2
-	\item Requerimiento 3 (prioridad menor)
+	\item Disponibilidad de 600 horas de cómputo en la nube para la ejecución de los servicios referidos en \autoref{fig:diagBloques} (estimación monetaria pendiente).
+	\item Disponibilidad de simulador tipo KepServerEX para representar virtualmente datos de PLC.
+	\item Disponibilidad de datos simulados suficientes para entrenar modelo de aprendizaje automático.
 	\end{enumerate}
-\item Grupo de requerimientos asociados con...
+\item Grupo de requerimientos asociados con temática:
 	\begin{enumerate}
-	\item Requerimiento 1
-	\item Requerimiento 2 (prioridad menor)
+	\item Disponibilidad de experto en la temática para validar enfoque de negocio.
 	\end{enumerate}
 \end{enumerate}
-
-Leyendo los requerimientos se debe poder interpretar cómo será el proyecto y su funcionalidad.
-
-De ser posible indicar cómo se obtuvieron cada uno de los requerimientos 
-
-Indicar claramente cuál es la prioridad entre los distintos requerimientos. 
-
-No olvidarse de que los requerimientos incluyen a las regulaciones y normas vigentes!!!
-
-Y al escribirlos seguir las siguientes reglas:
-\begin{itemize}
-\item Ser breve y conciso (nadie lee cosas largas). 
-\item Ser específico: no dejar lugar a confusiones.
-\item Expresar los requerimientos en términos que sean cuantificables y medibles.
-\end{itemize}
 
 \end{consigna}
 
@@ -256,25 +237,26 @@ Los entregables principales del proyecto serán:
 
 \section{6. Desglose del trabajo en tareas}
 \label{sec:wbs}
-
-\begin{consigna}{red}
-
+Todas las tareas se estiman en múltiplos de días completos (jornadas de 8 horas) para llegar al siguiente conjunto de tareas:
+\begin{consigna}{black}
 \begin{enumerate}
-\item Planificación del proyecto (48 hs)
+
+\item \textbf{Planificación del proyecto (48 hs)}
 	\begin{enumerate}
 	\item Definición del plan de proyecto (24 hs)
 	\item Desglose de tareas del plan  (16 hs)
 	\item Aprobación del plan (8 hs)
 	\end{enumerate}
-		\item Investigación preliminar (72 hs)
+
+\item \textbf{Investigación preliminar (72 hs)}
 	\begin{enumerate}
-	\item Analizar casos de uso similares (16 hs)
-	\item Revisar documentación de servicios propuestos (32 hs)
-	\item Evaluar alternativas de simulación de datos (16 hs)
-	\item Recopilar código y documentación de soluciones (8 hs)
+	\item Análisis de casos de uso similares (16 hs)
+	\item Revisión de documentación de servicios propuestos (32 hs)
+	\item Evaluación de alternativas de simulación de datos (16 hs)
+	\item Recopilación de código y documentación de soluciones (8 hs)
 	\end{enumerate}
 
-\item Prueba de concepto (112 hs)
+\item \textbf{Prueba de concepto (112 hs)}
 	\begin{enumerate}
 	\item Creación de cuentas y definición de permisos (16 hs)
 	\item Compra de equipamiento (8 hs)
@@ -283,13 +265,31 @@ Los entregables principales del proyecto serán:
 	\item Evaluación de funcionamiento (8 hs)
 	\end{enumerate}
 	
-		\item Implementación
+\item \textbf{Implementación (168 hs)}
 	\begin{enumerate}
-	\item Tarea 1 (tantas hs)
-	\item Tarea 2 (tantas hs)
-	\item Tarea 3 (tantas hs)
-	\item Tarea 4 (tantas hs)
-	\item Tarea 5 (tantas hs)
+	\item Creación de representación virtual de datos validados (40 hs)
+	\item Recolección e ingesta en la nube de los datos (32hs)
+	\item Definición de monitoreo de parámetros (8 hs)
+	\item Desarrollo de modelo de analítica avanzada (32hs)
+	\item Construccion de tablero de control (24 hs)
+	\item Confección de notificaciones y alertas (16 hs)
+	\item Creación de plantilla de infraestructura como código (16 hs)
+	\end{enumerate}
+
+\item \textbf{Validación (72 hs)}
+	\begin{enumerate}
+	\item Evaluación de desempeño con datos en tiempo real (32hs)
+	\item Realización de pruebas UAT para interfaz (24 hs)
+	\item Evaluación de desempeño de alertas y notificaciones (16 hs)
+	\end{enumerate}
+
+\item \textbf{Documentación y presentación (128 hs)}
+	\begin{enumerate}
+	\item Confección de la memoria (40 hs)
+	\item Confección del \textit{playbook} (32 hs)
+	\item Confección del \textit{runbook} (32 hs)
+	\item Desarrollo de la presentación (16 hs)
+	\item Presentación (8 hs)
 	\end{enumerate}
 \end{enumerate}
 
