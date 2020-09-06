@@ -14,15 +14,15 @@
 \autor{Juan Pablo Pilorget} 
 
 % El nombre del director y co-director, se puede usar el cualquier lugar del documento con el comando \supname y \cosupname y \pertesupname y \pertecosupname
-\director{Nombre del Director}
-\pertenenciaDirector{pertenencia} 
+\director{Director de Trabajo}
+\pertenenciaDirector{Pertenencia institucional} 
 % FIXME:NO IMPLEMENTADO EL CODIRECTOR ni su pertenencia
 \codirector{} % si queda vacio no se deberíá incluir 
 \pertenenciaCoDirector{}
 
 % Nombre del cliente, quien va a aprobar los resultados del proyecto, se puede usar con el comando \clientename y \empclientename
-\cliente{Nombre del cliente}
-\empresaCliente{Empresa del cliente}
+\cliente{Ariel Lutenberg}
+\empresaCliente{Carrera de Especialización en IoT - FIUBA}
 
 % Nombre y pertenencia de los jurados, se pueden usar el cualquier lugar del documento con el comando \jurunoname, \jurdosname y \jurtresname y \perteunoname, \pertedosname y \pertetresname.
 \juradoUno{Nombre y Apellido (1)}
@@ -34,7 +34,7 @@
  
 \fechaINICIO{25 de agosto de 2020}		%Fecha de inicio de la cursada de GdP \fechaInicioName
 \fechaFINALPlanificacion{13 de octubre de 2020} 	%Fecha de final de cursada de GdP
-\fechaFINALTrabajo{22 de diciembre de 2021}		%Fecha de defensa pública del trabajo final
+\fechaFINALTrabajo{1 de julio de 2021}		%Fecha de defensa pública del trabajo final
 
 
 \begin{document}
@@ -62,12 +62,9 @@
 \hline
 \rowcolor[HTML]{C0C0C0} 
 Revisión & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Detalles de los cambios realizados} & Fecha      \\ \hline
-1.0      & Creación del documento                                          & 27/06/2020 \\ \hline
-1.1      &                                                                 & dd/mm/aaaa \\ \hline
-1.2      & Otro ejemplo \newline
-		   Con texto partido \newline
-		   En varias líneas \newline
-		   A propósito                                                     & dd/mm/aaaa \\ \hline
+1.0      & Creación del documento                                          & 28/08/2020 \\ \hline
+1.1      &  Actualización de secciones 1 a 3                           & 04/09/2020 \\ \hline
+1.2      & Actualización de secciones 4 a 6                            & 06/09/2020 \\ \hline
 \end{tabularx}
 \end{table}
 
@@ -84,7 +81,7 @@ Buenos Aires, \fechaInicioName
 
 \vspace{2cm}
 
-Por medio de la presente se acuerda con el Ing. \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'', consistirá esencialmente en el prototipo preliminar de un sistema de control de temperatura de un calefón, y tendrá un presupuesto preliminar estimado de 600 hs de trabajo y \textcolor{red}{\$XXX}, con fecha de inicio \fechaInicioName\hspace{1px} y fecha de presentación pública \fechaFinalName.
+Por medio de la presente se acuerda con el Ing. \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'', consistirá esencialmente en el prototipo preliminar de un sistema de control de temperatura de un calefón, y tendrá un presupuesto preliminar estimado de 600 hs de trabajo y \$25.000, con fecha de inicio \fechaInicioName\hspace{1px} y fecha de presentación pública \fechaFinalName.
 
 Se adjunta a esta acta la planificación inicial.
 
@@ -107,35 +104,34 @@ Se adjunta a esta acta la planificación inicial.
 \section{Descripción técnica-conceptual del proyecto a realizar}
 \label{sec:descripcion}
 
-\begin{consigna}{red}
-El objetivo es que el lector en una o dos páginas entienda de qué se trata el proyecto y cuáles son sus desafíos, su motivación y su importancia.
-Se debe destacar claramente cuál es el valor que agrega el proyecto a realizar. ``El presente proyecto se destaca especialmente por incorporar tal cosa... Esto lo diferencia de otros sistemas similares en que ...''
+\begin{consigna}{black}
+La integración cada vez mayor de la tecnología operacional al mundo IoT plantea desafíos y numerosas oportunidades de desarrollo. 
 
-Puede ser útil incluir en esta sección la respuesta a alguna de estas preguntas:
+Una de las nuevas oportunidades es la relacionada a la mejora en la detección y prevención de mantenimiento de los equipos. Los procesos habituales de detección de fallas están vinculados a fallas concretas en el equipamiento o a controles de rutina, con un esfuerzo operacional y un costo económico elevado. Al incorporar capacidades de analítica avanzada no sólo se vuelve más efectivo el proceso -reduciendo los tiempos muertos generados por los controles de rutina- sino que además disminuye el deterioro de los equipos al realizar el mantenimiento de forma preventiva. 
 
-\begin{itemize}
-\item ¿Cómo se vincula este proyecto con la misión de la organización?
-\item ¿Cómo se inserta este proyecto en el modelo de negocio de la organización?
-\item ¿Ayuda a la explicación si se incluye un lienzo Canvas del Modelo de Negocio?
-\item ¿En qué estado del ciclo de vida está el producto que se desea reemplazar o mejorar?
-\item ¿Cuales son las necesidades que debe satisfacer?
-\item ¿Por dónde pasa la innovación?
-\end{itemize}
+A la vez, la capacidad de ejecutar tareas intensivas de cómputo en la nube permiten escalar los recursos de manera elástica, es decir, aprovisionando recursos para las tareas específicas en cada momento, y escalable, esto es, permitiendo ir conectando dispositivos sin estar limitados por la infraestructura de cómputo subyacente.
 
-La descripción técnica-conceptual \textbf{debe incluir al menos un diagrama en bloques del sistema }y una frase como la siguiente: ``En la Figura \ref{fig:diagBloques} se presenta el diagrama en bloques del sistema. Se observa que...''. Luego recién más abajo de haber puesto esta frase se pone la figura. La regla es que las figuras nunca pueden ir antes de ser mencionadas en el texto, porque sino el lector no entiende por qué de pronto aparece una figura.
+En la figura 1 se observa la arquitectura de referencia para solucionar el problema propuesto.
+
 
 \vspace{25px}
 
 \begin{figure}[htpb]
 \centering 
-\includegraphics[width=.7\textwidth]{./Figuras/diagBloques.png}
+\includegraphics[width=.7\textwidth]{./Figuras/diagrama-bloques.png}
 \caption{Diagrama en bloques del sistema}
 \label{fig:diagBloques}
 \end{figure}
 
+
 \vspace{25px}
 
-El tamaño de la tipografía en la figura debe ser adecuado para que NO pase lo que ocurre acá, donde el lector debe esforzarse para poder leer el texto. Los colores usados en el diagrama deben ser adecuados, tal que ayuden a comprender mejor el diagrama.
+El objetivo de la arquitectura propuesta es identificar anomalías en las señales -si nuestro dispositivo de origen es una turbina de viento, un ejemplo de señales pueden ser la velocidad del rotor, la velocidad del viento o la temperatura exterior- emitidas por los controladores lógicos programables (PLC, por su acrónimo en inglés). Para ello, se pretende desarrollar una arquitectura que, en primer lugar, tome la información de los PLC mediante la tecnología de comunicación industrial OPC-UA y la transmita de manera segura. La arquitectura también debe permitir operar fuera de línea, sincronizando con la nube al recuperar la conectividad. Para este punto se pretende usar AWS IoT Greengrass. En caso de querer modelar también la conexión de los PLC y simular información proveniente de, por ejemplo, turbinas de viento, se puede utilizar la versión demo de KepServerEX. 
+
+Posteriormente, se busca modelar los activos y poder monitorearlos para, mediante reglas, realizar procesos analíticos con esa información. El proceso de modelado y estructuración se diseñó utilizando AWS IoT SiteWise y AWS IoT Core y la analítica se desea calcular con AWS IoT Analytics. 
+
+En este punto es donde se dispara el proceso de detección de anomalías. En primer lugar, un modelo de aprendizaje automático -potencialmente uno de tipo Isolation Forest- entrenado en Amazon SageMaker se disponibiliza (mediante containers) y realiza la inferencia para la información estructurada que ingresa desde AWS IoT Analytics. En segundo lugar, se crea una notificación mediante AWS IoT Events si se cumple una determinada regla, por ejemplo, que un conjunto de predicciones esté consistentemente por encima de un umbral específico. Finalmente, la información producida se puede visualizar de manera periódica mediante un tablero de Amazon Quicksight.
+
 \end{consigna}
 
 
@@ -143,19 +139,6 @@ El tamaño de la tipografía en la figura debe ser adecuado para que NO pase lo 
 \label{sec:interesados}
 
 \begin{consigna}{red} 
-Nota: (borrar esto y todas las consignas en color rojo antes de entregar este documento).
- 
-Es inusual que una misma persona esté en más de un rol, incluso en proyectos chicos.
- 
-Si se considera que una persona cumple dos o más roles, entonces sólo dejarla en el rol más importante. Por ejemplo:
-
-\begin{itemize}
-\item Si una persona es Cliente pero también colabora u orienta, dejarla solo como Cliente.
-\item Si una persona es el Responsable, no debe ser colocado también como Miembro del equipo.
-\end{itemize}
-
-Pero en cambio sí es usual que el Cliente y el Auspiciante sean el mismo, por ejemplo.
-
 \begin{table}[ht]
 %\caption{Identificación de los interesados}
 %\label{tab:interesados}
@@ -163,33 +146,15 @@ Pero en cambio sí es usual que el Cliente y el Auspiciante sean el mismo, por e
 \hline
 \rowcolor[HTML]{C0C0C0} 
 Rol           & Nombre y Apellido & Organización 	& Puesto 	\\ \hline
-Auspiciante   &                   &              	&        	\\ \hline
-Cliente       & \clientename      &\empclientename	&        	\\ \hline
-Impulsor      &                   &              	&        	\\ \hline
+Auspiciante   &  \authorname                 &        FIUBA      	&  Alumno      	\\ \hline
+Cliente       & \clientename      &\empclientename	&     Director 	\\ \hline
+Impulsor      &  -                 &         -     	&     -	\\ \hline
 Responsable   & \authorname       & FIUBA        	& Alumno 	\\ \hline
-Colaboradores &                   &              	&        	\\ \hline
+Colaboradores & Consultor experto en IoT                  &    Amazon Web Services   	& IoT Subject Matter Expert       	\\ \hline
 Orientador    & \supname	      & \pertesupname 	& Director	Trabajo final \\ \hline
-Equipo        & miembro1 \newline 
-				miembro2          &              	&        	\\ \hline
-Opositores    &                   &              	&        	\\ \hline
-Usuario final &                   &              	&        	\\ \hline
+Usuario final &   -             &     Empresa        	&        Ingeniero de procesos / operaciones \\ \hline
 \end{tabularx}
 \end{table}
-
-El Director suele ser uno de los Orientadores.
-
-No dejar celdas vacías; si no hay nada que poner en una celda colocar un signo ``-''.
-
-No dejar filas vacías; si no hay nada que poner en una fila entonces eliminarla.
-
-Sería deseable listar a continuación de la tabla las principales características de cada interesado.
- 
-Por ejemplo:
-\begin{itemize}
-\item Auspiciante: es riguroso y exigente con la rendición de gastos. Tener mucho cuidado con esto.
-\item Equipo: Juan Perez, suele pedir licencia porque tiene un familiar con una enfermedad. Planificar considerando esto.
-\item Orientador: María Gómez, nos va a poder ayudar mucho con la gestión de impuestos.
-\end{itemize}
 
 \end{consigna}
 
@@ -198,23 +163,17 @@ Por ejemplo:
 \section{1. Propósito del proyecto}
 \label{sec:proposito}
 
-\begin{consigna}{red}
-¿Por qué se hace el proyecto? ¿Qué se quiere lograr? 
-
-Se recomienda que sea solo un párrafo que empiece diciendo ``El propósito de este proyecto es...''.
+\begin{consigna}{black}
+El propósito de este proyecto es mejorar los actuales procesos de detección de necesidad de mantenimiento en equipamiento industrial, reduciendo tiempos y costos e incrementando la productividad. Para ello, se pretende desarrollar un flujo de trabajo que integre de manera completa -punta a punta- desde la captación de eventos en el dispositivo de borde hasta la inferencia mediante aprendizaje automático.
 \end{consigna}
 
 \section{2. Alcance del proyecto}
 \label{sec:alcance}
 
-\begin{consigna}{red}
-¿Qué se incluye y que no se incluye en este proyecto?
+\begin{consigna}{black}
+El alcance del proyecto contempla el desarrollo de la arquitectura de transmisión de la información desde los PLC hacia la nube, su análisis y visualización para la detección temprana de necesidad de mantenimiento. 
 
-Se refiere al trabajo a hacer para entregar el producto o resultado especificado. 
-
-Explicitar todo lo quede comprendido dentro del alcance del proyecto.
-
-Explicitar además todo lo que no quede incluido (``El presente proyecto no incluye...'')
+El presente proyecto no incluye la conexión en un ámbito industrial del equipamiento. Dicho flujo se simulará utilizando herramientas como KepServerEX.
 
 \end{consigna}
 
@@ -222,15 +181,15 @@ Explicitar además todo lo que no quede incluido (``El presente proyecto no incl
 \section{3. Supuestos del proyecto}
 \label{sec:supuestos}
 
-\begin{consigna}{red}
-``Para el desarrollo del presente proyecto se supone que: ...''
+\begin{consigna}{black}
+Para el desarrollo del presente proyecto se supone que:
 
 \begin{itemize}
-\item Supuesto 1
-\item Supuesto 2...
+\item Se cuenta con acceso a servicios de cómputo en la nube (en este caso, Amazon Web Services).
+\item La simulación de PLC mediante /texit{software} es condición suficiente para demostrar la viabilidad técnica y financiera del proyecto.
+\item Se contará con información de dominio suficiente del ámbito industrial a elegir.
 \end{itemize}
 
-Por ejemplo, se podrían incluir supuestos respecto a disponibilidad de tiempo y recursos humanos y materiales, sobre la factibilidad técnica de distintos aspectos del proyecto, sobre otras cuestiones que sean necesarias para el éxito del proyecto como condiciones macroeconómicas o reglamentarias.
 \end{consigna}
 
 \section{4. Requerimientos}
@@ -274,20 +233,22 @@ Y al escribirlos seguir las siguientes reglas:
 \label{sec:backlog}
 
 \begin{consigna}{red}
-Descripción: En esta sección se deben incluir las historias de usuarios y su ponderación (\textit{history points}). Recordar que las historias de usuarios son descripciones cortas y simples de una característica contada desde la perspectiva de la persona que desea la nueva capacidad, generalmente un usuario o cliente del sistema. La ponderación es un número entero que representa el tamaño de la historia comparada con otras historias de similar tipo.
+\textit{NOTA: esta sección se deja vacía hasta tener la clase de Metodologías ágiles.}
+
+%Descripción: En esta sección se deben incluir las historias de usuarios y su ponderación (\textit{story points}). Recordar que las historias de usuarios son descripciones cortas y simples de una característica contada desde la perspectiva de la persona que desea la nueva capacidad, generalmente un usuario o cliente del sistema. La ponderación es un número entero que representa el tamaño de la historia comparada con otras historias de similar tipo.
 \end{consigna}
 
 \section{5. Entregables principales del proyecto}
 \label{sec:entregables}
 
-\begin{consigna}{red}
-Cosas como: 
+\begin{consigna}{black}
+Los entregables principales del proyecto serán: 
 \begin{itemize}
-\item Manual de uso
-\item Diagrama esquemático
-\item Código fuente
-\item Diagrama de instalación
-\item Informe final
+\item Documentación describiendo el paso a paso de despliegue de la solución y los artefactos asociados (\textit{runbook})
+\item Documentación detallando los pasos para la operación de la solución (\textit{playbook})
+\item Artefactos de infraestructura como código para la construcción de la arquitectura
+\item Código fuente de los modelos de aprendizaje automático desarrollados
+\item Informe final de presentación de resultados
 
 \end{itemize}
 
@@ -297,22 +258,32 @@ Cosas como:
 \label{sec:wbs}
 
 \begin{consigna}{red}
-Se recomienda mostrar el WBS mediante una lista indexada:
 
 \begin{enumerate}
-\item Grupo de tareas 1
+\item Planificación del proyecto (48 hs)
 	\begin{enumerate}
-	\item Tarea 1 (tantas hs)
-	\item Tarea 2 (tantas hs)
-	\item Tarea 3 (tantas hs)
+	\item Definición del plan de proyecto (24 hs)
+	\item Desglose de tareas del plan  (16 hs)
+	\item Aprobación del plan (8 hs)
 	\end{enumerate}
-\item Grupo de tareas 2
+		\item Investigación preliminar (72 hs)
 	\begin{enumerate}
-	\item Tarea 1 (tantas hs)
-	\item Tarea 2 (tantas hs)
-	\item Tarea 3 (tantas hs)
+	\item Analizar casos de uso similares (16 hs)
+	\item Revisar documentación de servicios propuestos (32 hs)
+	\item Evaluar alternativas de simulación de datos (16 hs)
+	\item Recopilar código y documentación de soluciones (8 hs)
 	\end{enumerate}
-	\item Grupo de tareas 3
+
+\item Prueba de concepto (112 hs)
+	\begin{enumerate}
+	\item Creación de cuentas y definición de permisos (16 hs)
+	\item Compra de equipamiento (8 hs)
+	\item Desarrollo de arquitectura (40 hs)
+	\item Construcción de \textit{wireframe} (40 hs)
+	\item Evaluación de funcionamiento (8 hs)
+	\end{enumerate}
+	
+		\item Implementación
 	\begin{enumerate}
 	\item Tarea 1 (tantas hs)
 	\item Tarea 2 (tantas hs)
@@ -322,9 +293,7 @@ Se recomienda mostrar el WBS mediante una lista indexada:
 	\end{enumerate}
 \end{enumerate}
 
-Cantidad total de horas: (tantas hs)
-
-Se recomienda que no haya ninguna tarea que lleve más de 40 hs. 
+Cantidad total de horas: 600 hs
 
 \end{consigna}
 
