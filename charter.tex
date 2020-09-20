@@ -186,7 +186,7 @@ Para el desarrollo del presente proyecto se supone que:
 
 \begin{itemize}
 \item Se cuenta con acceso a servicios de cómputo en la nube (en este caso, Amazon Web Services).
-\item La simulación de PLC mediante /texit{software} es condición suficiente para demostrar la viabilidad técnica y financiera del proyecto.
+\item La simulación de PLC mediante \textit{software} es condición suficiente para demostrar la viabilidad técnica y financiera del proyecto.
 \item Se contará con información de dominio suficiente del ámbito industrial a elegir.
 \end{itemize}
 
@@ -196,15 +196,20 @@ Para el desarrollo del presente proyecto se supone que:
 \label{sec:requerimientos}
 \begin{consigna}{black}
 \begin{enumerate}
-\item Grupo de requerimientos asociados con insumos:
+\item Grupo de requerimientos asociados con \textit{hardware}:
 	\begin{enumerate}
-	\item Disponibilidad de 600 horas de cómputo en la nube para la ejecución de los servicios referidos en \autoref{fig:diagBloques} (estimación monetaria pendiente).
-	\item Disponibilidad de simulador tipo KepServerEX para representar virtualmente datos de PLC.
-	\item Disponibilidad de datos simulados suficientes para entrenar modelo de aprendizaje automático.
+	\item Debe enviar señales simulando un PLC mediante un dispositivo de tipo Raspberry Pi.
+	\item Debe usar un protocolo de tipo OPC-UA.
+	\item Debe recolectar y procesar la información en la nube.
+	\item Debe realizar inferencias y permitir visualizarlas en la nube.
+	\item Debe almacenar la información de los PLC en la nube.
 	\end{enumerate}
-\item Grupo de requerimientos asociados con temática:
+\item Grupo de requerimientos asociados con \textit{software}:
 	\begin{enumerate}
-	\item Disponibilidad de experto en la temática para validar enfoque de negocio.
+	\item Debe dirigir la información recibida desde los PLC y redirigida a la nube mediante un motor de reglas.
+	\item Debe incluir un modelo de aprendizaje automático de detección de anomalías.
+	\item Debe presentar los resultados del modelo de aprendizaje automático detectados como anómalos en \textit{near real-time} mediante un tablero.
+	\item Debe generar notificaciones (a ser enviadas a un correo electrónico o mediante SMS).
 	\end{enumerate}
 \end{enumerate}
 
@@ -212,7 +217,6 @@ Para el desarrollo del presente proyecto se supone que:
 
 \section{Historias de usuarios (\textit{Product backlog})}
 \label{sec:backlog}
-
 \begin{consigna}{black}
 \begin{itemize}
 \item Como líder técnico del proyecto quiero construir un listado exhaustivo de épicas, historias de usuario, tareas y su respectivo sprint plan. \textit{Story points: 1}
