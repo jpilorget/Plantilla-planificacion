@@ -81,7 +81,7 @@ Buenos Aires, \fechaInicioName
 
 \vspace{2cm}
 
-Por medio de la presente se acuerda con el Ing. \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'', consistirá esencialmente en el prototipo preliminar de un sistema de control de temperatura de un calefón, y tendrá un presupuesto preliminar estimado de 600 hs de trabajo y \$25.000, con fecha de inicio \fechaInicioName\hspace{1px} y fecha de presentación pública \fechaFinalName.
+Por medio de la presente se acuerda con el Ing. \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'', consistirá esencialmente en el prototipo preliminar de un sistema de control de temperatura de un calefón, y tendrá un presupuesto preliminar estimado de 600 hs de trabajo y USD 21.250, con fecha de inicio \fechaInicioName\hspace{1px} y fecha de presentación pública \fechaFinalName.
 
 Se adjunta a esta acta la planificación inicial.
 
@@ -379,6 +379,15 @@ Documentación y pres.& Presentación & 4 &  & 4 \\ \hline
 \end{tabularx}%
 \end{table}
 
+{\footnotesize
+Referencias:
+\begin{itemize}
+	\item PC = Investigación, redacción y desarrollo de software
+	\item HW = Compra y desarrollo de hardware
+	\item Rev = Revisión de terceros
+\end{itemize}
+} %footnotesize
+
 
 \section{10. Presupuesto detallado del proyecto}
 \label{sec:presupuesto}
@@ -442,8 +451,8 @@ Descripción &
 
 \section{11. Matriz de asignación de responsabilidades}
 \label{sec:responsabilidades}
-\begin{consigna}{red}
-Establecer la matriz de asignación de responsabilidades y el manejo de la autoridad completando la siguiente tabla:
+\begin{consigna}{black}
+La asignación de responsabilidades y el manejo de la autoridad del proyecto se gestionará de la siguiente manera:
 
 \begin{table}[htpb]
 \centering
@@ -453,7 +462,7 @@ Establecer la matriz de asignación de responsabilidades y el manejo de la autor
 \rowcolor[HTML]{C0C0C0} 
 \cellcolor[HTML]{C0C0C0} &
   \cellcolor[HTML]{C0C0C0} &
-  \multicolumn{4}{c|}{\cellcolor[HTML]{C0C0C0}Listar todos los nombres y roles del proyecto} \\ \cline{3-6} 
+  \multicolumn{4}{c|}{\cellcolor[HTML]{C0C0C0}Nombres y roles del proyecto} \\ \cline{3-6} 
 \rowcolor[HTML]{C0C0C0} 
 \cellcolor[HTML]{C0C0C0} &
   \cellcolor[HTML]{C0C0C0} &
@@ -466,14 +475,39 @@ Establecer la matriz de asignación de responsabilidades y el manejo de la autor
   \multirow{-3}{*}{\cellcolor[HTML]{C0C0C0}Nombre de la tarea} &
   \authorname &
   \supname &
-  Nombre de alguien &
+  Experto en IoT &
   \clientename \\ \hline
- &  &  &  &  &  \\ \hline
- &  &  &  &  &  \\ \hline
- &  &  &  &  &  \\ \hline
+Planificación del proyecto & Definición del plan de proyecto & P & A & & C \\ \hline
+Planificación del proyecto & Desglose de tareas del plan & P & I &  & I  \\ \hline
+Planificación del proyecto & Aprobación del plan & P & A & & I \\ \hline
+Investigación preliminar & Análisis de casos de uso similares & P & I  & C &  \\ \hline
+Investigación preliminar & Evaluación de alternativas de simulación & P  &  & C & I \\ \hline
+Investigación preliminar & Revisión de documentación de servicios &  P &  & I &  \\ \hline
+Investigación preliminar & Recopilación de código y documentación & P & & C &  \\ \hline
+Prueba de concepto & Creación de cuentas y definición de permisos & P & & & I \\ \hline 
+Prueba de concepto & Compra de equipamiento & P & & C &  \\ \hline
+Prueba de concepto & Desarrollo de arquitectura & P & A & C &  \\ \hline
+Prueba de concepto & Construcción de \textit{wireframe} & P & A &  & A  \\ \hline
+Prueba de concepto & Evaluación de funcionamiento & P & I &  & I \\ \hline
+Implementación & Creación de representación virtual de datos &  P & & C &  \\ \hline
+Implementación & Recolección de datos e ingesta en la nube & P &  &  &  \\ \hline
+Implementación & Definición de monitoreo de parámetros & P &  & & C  \\ \hline
+Implementación & Desarrollo de modelo de analítica avanzada & P &  & C & A  \\ \hline
+Implementación & Construcción de tablero de control & P & & C & A \\ \hline
+Implementación & Confección de notificaciones y alertas & P & &  & A \\ \hline
+Implementación & Creación de plantilla de IaC & P & & C & I \\ \hline
+Validación & Evaluación de desempeño en tiempo real & P & I & & A \\ \hline
+Validación & Realización de pruebas UAT para interfaz & P & I & & A \\ \hline
+Validación & Evaluación de desempeño de alertas & P & I &  & A \\ \hline
+Documentación y pres. & Confección de la memoria & P & A &  &  \\ \hline
+Documentación y pres.& Confección del playbook & P & I &  & A \\ \hline 
+Documentación y pres.& Confección del runbook & P & I & & A \\ \hline
+Documentación y pres.& Desarrollo de la presentación & P & A & &  \\ \hline
+Documentación y pres.& Presentación & P & A &  & \\ \hline
 \end{tabular}%
 }
 \end{table}
+
 
 {\footnotesize
 Referencias:
@@ -486,10 +520,8 @@ Referencias:
 \end{itemize}
 } %footnotesize
 
-Una de las columnas debe ser para el Director, ya que se supone que participará en el proyecto.
-A su vez se debe cuidar que no queden muchas tareas seguidas sin ``A'' o ``I''.
-
-Importante: es redundante poner ``I/A'' o ``I/C'', porque para aprobarlo o responder consultas primero la persona debe ser informada.
+%Una de las columnas debe ser para el Director, ya que se supone que participará en el proyecto.
+%A su vez se debe cuidar que no queden muchas tareas seguidas sin ``A'' o ``I''.
 
 \end{consigna}
 
