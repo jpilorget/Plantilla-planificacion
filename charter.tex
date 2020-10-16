@@ -67,6 +67,8 @@ Revisión & \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Detalles de los cambios 
 1.2      & Actualización de secciones 4 a 6                            & 06/09/2020 \\ \hline
 1.3      & Actualización de sección 5                            & 13/09/2020 \\ \hline
 1.4      & Actualización de secciones 7 a 11                            & 21/09/2020 \\ \hline
+1.5      & Actualización de secciones 12 a 17                           & 28/09/2020 \\ \hline
+
 \end{tabularx}
 \end{table}
 
@@ -197,22 +199,15 @@ Para el desarrollo del presente proyecto se supone que:
 \section{4. Requerimientos}
 \label{sec:requerimientos}
 \begin{consigna}{black}
-\begin{enumerate}
-\item Grupo de requerimientos asociados con \textit{hardware}:
 	\begin{enumerate}
-	\item Debe enviar señales simulando un PLC mediante un dispositivo de tipo Raspberry Pi.
-	\item Debe usar un protocolo de tipo OPC-UA.
-	\item Debe recolectar y procesar la información en la nube.
-	\item Debe realizar inferencias y permitir visualizarlas en la nube.
-	\item Debe almacenar la información de los PLC en la nube.
-	\end{enumerate}
-\item Grupo de requerimientos asociados con \textit{software}:
-	\begin{enumerate}
-	\item Debe dirigir la información recibida desde los PLC y redirigida a la nube mediante un motor de reglas.
-	\item Debe incluir un modelo de aprendizaje automático de detección de anomalías.
-	\item Debe presentar los resultados del modelo de aprendizaje automático detectados como anómalos en \textit{near real-time} mediante un tablero.
-	\item Debe generar notificaciones (a ser enviadas a un correo electrónico o mediante SMS).
-	\end{enumerate}
+	\item El sistema debe enviar señales simulando hasta un máximo de 5 PLC mediante un dispositivo de tipo Raspberry Pi.
+	\item El sistema debe utilizar un protocolo de tipo OPC-UA para que los PLC puedna ser conectados a la nube mediante AWS IoT SiteWise.
+	\item El sistema debe recolectar la información proveniente de AWS IoT SiteWise y almacenarla en la nube utilizando Amazon Simple Storage Service (S3).
+	\item El sistema debe dirigir la información recibida desde los PLC y redirigida a la nube mediante un motor de reglas (AWS IoT Core).
+	\item El sistema debe procesar la información y transformarla según los parámetros de tiempo establecidos mediante AWS IoT Analytics y almacenarla en utilizando Amazon S3.
+	\item El sistema debe incluir un modelo de aprendizaje automático de detección de anomalías desarrollado en Amazon SageMaker.
+	\item El sistema debe presentar los resultados del modelo de aprendizaje automático detectados como anómalos en \textit{near real-time} mediante un tablero de Amazon Quicksight.
+	\item El sistema debe enviar notificaciones de anomalías mediante un correo electrónico o a través de mensajes de texto (SMS).
 \end{enumerate}
 
 \end{consigna}
@@ -229,7 +224,6 @@ Las historias de usuario, priorizadas y con sus respectivos \textit{story points
 \item Como arquitecto de datos quiero construir una flujo de procesamiento para la ingestión, almacenamiento y procesamiento de datos en tiempo real. \textit{Story points: 10}
 \item Como ingeniero de operaciones quiero ser capaz de monitorear en tiempo real los indicadores operacionales clave mediante un tablero. \textit{Story points: 3}
 \item Como arquitecto de infraestructura quiero construir un vínculo con la red corporativa mediante protocolos estándar para comunicarme con la planta y obtener los datos de los dispositivos existentes. \textit{Story points: 7}
-\item Como líder técnico del proyecto quiero construir un listado exhaustivo de épicas, historias de usuario, tareas y su respectivo sprint plan. \textit{Story points: 1}
 \item Como ingeniero de operaciones quiero monitorear y gestionar las alarmas, alertas y notificaciones para las acciones. \textit{Story points: 1}
 
 \item Como líder técnico quiero tener la capacidad de automatizar el proceso de construcción de infraestructura mediante código para reducir los tiempos de despliegue. \textit{Story points: 3}
@@ -298,7 +292,7 @@ Todas las tareas se estiman en múltiplos de días completos (jornadas de 8 hora
 \item \textbf{Validación (72 hs)}
 	\begin{enumerate}
 	\item Evaluación de desempeño con datos en tiempo real (32hs)
-	\item Realización de pruebas UAT para interfaz (24 hs)
+	\item Realización de pruebas UAT (\textit{user acceptance test}) para interfaz (24 hs)
 	\item Evaluación de desempeño de alertas y notificaciones (16 hs)
 	\end{enumerate}
 
@@ -550,22 +544,22 @@ Riesgo 2: que no sea posible entrenar el modelo por falta de cantidad o calidad 
 \item Ocurrencia (O): 3. Los modelos no supervisados pueden trabajar con un conjunto acotado de datos y se puede incrementar la tasa de muestreo para tener más puntos sobre los que trabajar.
 \end{itemize}
 
-Riesgo 3: que no sea posible realizar pruebas UAT por falta de disponibilidad del cliente
+Riesgo 3: que no sea posible realizar pruebas UAT (\textit{user acceptance test}) por falta de disponibilidad del cliente
 \begin{itemize}
 \item Severidad (S): 7. Imposibilitaría tener una acerca de la de la solución.
 \item Ocurrencia (O): 5. El cliente será informado y podrá observar el avance mediante \textit{demos} de manera periódica.
 \end{itemize}
 
-Riesgo 4: que no sea posible enviar las alertas vía SMS
+Riesgo 4: que no sea posible enviar las alertas vía SMS.
 \begin{itemize}
-\item Severidad (S): 5. Existe la posibilidad de enviar las alertas por correo electrónico.
+\item Severidad (S): 5. Reduce los medio de envío de dos (SMS y correo electrónico) a uno solo.
 \item Ocurrencia (O): 2. Los sistemas de envío de mensajes de texto de AWS están probados y son robustos.
 \end{itemize}
 
 Riesgo 5: Que no sea posible actualizar el tablero en \textit{near real-time}.
 \begin{itemize}
-\item Severidad (S): 5
-\item Ocurrencia (O): 5
+\item Severidad (S): 5. El tablero requiera un período más prolongado (entre 45 minutos y una hora) para mostrar las alertas.
+\item Ocurrencia (O): 5. Depende de la capacidad de refrescar la fuente de datos utilizada (si persiste en un almacenamiento por objetos o se mantiene en otro formato).
 \end{itemize}
 
 b) Tabla de gestión de riesgos:      (El RPN se calcula como RPN=SxO)
@@ -576,8 +570,10 @@ b) Tabla de gestión de riesgos:      (El RPN se calcula como RPN=SxO)
 \hline
 \rowcolor[HTML]{C0C0C0} 
 Riesgo & S & O & RPN & S* & O* & RPN* \\ \hline
+\rowcolor[HTML]{D3D3D3} 
     1   &  6 &  6 & 36    &  7  &  2  & 14     \\ \hline
     2  &  9 &  3 &   27  &    &    &      \\ \hline
+\rowcolor[HTML]{D3D3D3} 
     3  &  7 &  5 &   35  &  8  &  2  & 16     \\ \hline
     4  &  5 &  2 &   14  &    &    &      \\ \hline
     5  &  5 &  5 &   25  &    &    &      \\ \hline
@@ -597,7 +593,7 @@ Riesgo 1: los procesos de recolección de casos similares permiten contar con he
 
 Riesgo 3: el cliente irá observando el análisis de la solución iterativamente, partiendo de un \textit{wireframe}, lo que permitirá reducir la criticidad de UAT
 
-- Severidad: 8. Si el cliente no logra participar de la validación iterativa no existe ningún tipo de retroalimentación sobre la solución.
+- Severidad: 8. Si, aún observando la evolución iterativa de la solución, el cliente no logra realizar pruebas, no existe ningún tipo de validación sobre la aceptación de la solución.
 
 - Ocurrencia: 2. Se disponen de instancias quincenales para detectar tempranamente la falta de disponibilidad del cliente y proponer alternativas de validación.
  
